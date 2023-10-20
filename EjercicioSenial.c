@@ -13,6 +13,7 @@ void manejador (int segnal)
 {
     printf("Por esta vez te has salvado, no te fíes de los extraños\n");
     kill(pid_hijo,SIGKILL); 
+    exit(0);
 }
 bool comprobacion ()
 {
@@ -28,7 +29,7 @@ bool comprobacion ()
 
 int main(){
 	int num;
-    
+    signal(SIGUSR1, manejador);    
 
 	pid_hijo=fork();
     switch(pid_hijo){
@@ -40,12 +41,12 @@ int main(){
 
             if (comprobacion())
             {
-                signal(SIGUSR1 ,manejador);    
+                kill(getppid() ,SIGUSR1);    
             }
 		default:
-            sleep(5);
+            sleep(30);
             destruir();
             kill(pid_hijo,SIGKILL);
 	}
-	return(0);
+	exit(0);
 }
