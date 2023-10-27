@@ -6,49 +6,44 @@
 #include <ctype.h>
 
 void main(int argc, char *argv[]){
-    pid_t  hijo; //Proceso genérico (padre e hijos).  
-    int i;       //Autoincremental del bucle for
-    char c;      //Char para la lectura del archivo
-    int pi[2];   //Pipe para el flujo de los datos entre los extremos
-    FILE *fd;    //Archivo que leeremos
-    
-    if(argc<2){  //Comprobación de los argumentos
+    pid_t  hijo;
+    int i, contador;   
+    FILE *fd;
+    char c;
+
+    if(argc<2){
         printf("faltan argumentos\n");
         exit(-1);
     }
 
-	fd=fopen(argv[1],"r"); //abrimos el fichero para lectura
     
-	if (fd == NULL){  //Comprobación de la lectura correcta
+	if (fd == NULL){
 		printf("ERROR DE APERTURA DEL FICHERO ....\n");
 		exit(-1);
 	}
 	printf("Contenido del fichero:\n");
     
-    pipe(pi);
-    int contador = 0;
-    char letras[] = "aeiou";
+    contador = 0;
+    char letras[5] = {'a','e','i','o','u'};
 
-    for(i=0;i<=4;i++) //Bucle en el que realizamos los 5 fork()
-    {                  // (Procesos hijos)
+    for(i=0;i<=4;i++)
+    {
        
        hijo = fork();
-        if(hijo==0){
-        
+       	fd=fopen(argv[1],"r");
 
+        if(hijo==0){
         while(fscanf(fd,"%c",&c)>0)
             {
                 printf("%c", c);                 
-                if(c == letras[i])
+                if(tolower(c) == letras[i])
+                
                 {
                     contador++;
                 }
             }
-            close(pi[0]);
             break;
         }
-        
-        
     }
     
     
@@ -56,7 +51,7 @@ void main(int argc, char *argv[]){
     {
         printf("Hijo: %d con PID: %d y Padre %d\n", i,getpid() ,getppid());
         printf("El número de veces que ha aparecido la vocal: %c es de %d veces (Proceso %d)\n", toupper(letras[i]) , contador, i);
-        sleep(10);
+        sleep(5);
         printf("Fin del hijo %d \n", i);
     } else{
         sleep(5);
