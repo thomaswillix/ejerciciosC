@@ -12,7 +12,7 @@ typedef struct{
 Crea una pelicula con título 'por resolver'
 y minutos 0 
 */
-Juego* nuevoJuegoGenerica();
+Juego* nuevoJuegoGenerico();
 /*
 Devuelve una cadena con los datos del
 jugador (nombre y puntos)
