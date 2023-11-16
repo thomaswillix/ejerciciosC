@@ -21,27 +21,27 @@ char* toStringJuego(Juego j){
     
     return cadena;
 }
-Juego* nuevoJuego(char *tit, int h){
+Juego* nuevoJuego(char *tit, double h){
     Juego *j=malloc(sizeof(Juego));
 
     strcpy(j->titulo, tit);
     j->horas=h;
 }
 
-void leerJugador(Jugador *j){
-    int puntos=0;
+void leerJuego(Juego *j){
+    int horas=0;
 
     printf("Nombre:");
-    scanf("%s",j->nombre);
+    scanf("%s",j->titulo);
     printf("Puntos: ");
-    scanf("%d",&puntos);
-    j->numero = puntos;
+    scanf("%d",&horas);
+    j->horas = horas;
 }
-int compararJugador(Jugador a, Jugador b){
-    if(a.numero==b.numero)
+int compararJuego(Juego a, Juego b){
+    if(a.horas==b.horas)
         return 0;
     else
-        if(a.numero<b.numero)
+        if(a.horas<b.horas)
         return -1;
     else
         return 1;
