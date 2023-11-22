@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 typedef struct{
-    char titulo[20];
+    char *titulo;
     //char *titulo
     double horas;
 } Juego;
@@ -19,7 +19,7 @@ jugador (nombre y puntos)
 */
 char* toStringJuego(Juego j);
 
-Juego* nuevoJuego(char *nombre, double horas);
+Juego* nuevoJuego();
 void leerJuego(Juego *j);
 
 char* getTitulo(Juego j);
