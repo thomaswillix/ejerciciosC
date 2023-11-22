@@ -10,16 +10,18 @@ Juego* nuevoJuegoGenerico(){
 char* toStringJuego(Juego j){
     char* cadena=malloc(30*sizeof(char));
     
-    sprintf(cadena,"Titulo: %s horas: %lf\n"
+    sprintf(cadena,"Titulo: %s horas: %.2lf\n"
                 ,j.titulo,j.horas);
     
     return cadena;
 }
-Juego* nuevoJuego(char *tit, double h){
+Juego* nuevoJuego(){
     Juego *j=malloc(sizeof(Juego));
 
-    strcpy(j->titulo, tit);
-    j->horas=h;
+    j->titulo=malloc(sizeof (char) * 20);
+    j->horas=0;
+
+    return j;
 }
 
 void leerJuego(Juego *j){
