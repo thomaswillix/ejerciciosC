@@ -1,7 +1,7 @@
 # These are some exercises about processes done in C. #
 
 I have more programs about processes in my 
-<a href="https://github.com/thomaswillix/Java-Exercises">Java-Exercises repo :)</a>
+<a href="https://github.com/thomaswillix/Processes">Java-Exercises repo :)</a>
 
 ## What have I done for now? ##
 *Important! all programs have been done in Ubuntu, so urls and reading/writing is different from Windows/MAC*
