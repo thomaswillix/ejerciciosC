@@ -4,7 +4,7 @@ I have more programs about processes in my
 <a href="https://github.com/thomaswillix/Processes">Java-Exercises repo :)</a>
 
 ## What have I done for now? ##
-*Important! all programs have been done in Ubuntu, so urls and reading/writing is different from Windows/MAC*
+*Important! all programs have been done in Ubuntu, so urls and reading/writing is different from Windows or MAC*
 - <a href="https://github.com/thomaswillix/ejerciciosC/psforkarbol.c">psforkarbol.c</a> creates 5 child processes
 of a parent using the fork() function.
 - <a href="https://github.com/thomaswillix/ejerciciosC/EjercicioVocales.c">EjercicioVocales.c</a> creates 5 child processes
